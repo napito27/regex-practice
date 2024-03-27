@@ -1,7 +1,8 @@
 import React from "react";
+import { toast } from "react-toastify";
 
 const patterns = {
-  emailRegex: /^([a-z\d\.-_]+)@([a-z\d-]+)\.([a-z]{2,})(\.[a-z]{2,8})?$/i,
+  emailRegex: /^([a-z\d\.-_]+)@([a-z\d-]+)\.([a-z]{3,})(\.[a-z]{2,8})?$/i,
   phone: /^(\d{3})-?(\d{3})-?(\d{4})?$/,
   letterMatch: /[a-zA-Z]{1,}/gim,
   catMatch: /cat[\w]+/gim,
@@ -17,40 +18,55 @@ function PracticeWorksheet() {
   const [email, setEmail] = React.useState("");
   const [validEmail, setValidEmail] = React.useState(false);
 
-  const validateEmail = (email) => {
-    // Regular expression for email validation
-    // const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const emailRegex =
+      /^([^\s!@#$%^&*]+)@([a-z0-9]+)\.([a-z]{3,})(\.[a-z]{2,8})?$/i;
+    const emailValue = e.target.value;
 
-    // Test if the email matches the regex
-    const isValidEmail = patterns.emailRegex.test(email);
-    setValidEmail(validEmail);
+    setEmail(emailValue);
+
+    if (emailRegex.test(emailValue)) {
+      setValidEmail(true);
+    } else {
+      setValidEmail(false);
+    }
   };
 
-  const handleInputChange = (e) => {
-    const newEmail = e.target.value;
-    setEmail(newEmail);
-    setValidEmail(newEmail);
+  const validateEmail = () => {
+    if (email === "") {
+      toast.warning("Please enter your email", {
+        pauseOnFocusLoss: false,
+      });
+    } else if (validEmail) {
+      toast.success("Valid email!!", {
+        pauseOnFocusLoss: false,
+      });
+    } else if (!validEmail) {
+      toast.error("The email you entered is not valid", {
+        pauseOnFocusLoss: false,
+      });
+    }
+
+    setEmail("");
+    setValidEmail(false);
   };
+
+  const validationClassName = validEmail ? "valid" : "invalid";
 
   return (
     <>
-      <label htmlFor="email">Email </label>
-      <input
-        type="email"
-        name="email"
-        id="email"
-        value={email}
-        onChange={handleInputChange}
-      />
-      <p>Email must be a valid address, e.g. me@domain.com</p>
-
-      <label htmlFor="phone">Phone </label>
-      <input
-        type="text"
-        name="phone"
-        id="phone"
-      />
-      <p>Telephone number must be 10 digits</p>
+      <div className='card'>
+        <h4>Email validation</h4>
+        <input
+          type='email'
+          name='email'
+          placeholder='Enter email'
+          value={email}
+          onChange={handleInputChange}
+          className={`email-input ${validationClassName}`}
+        />
+        <button onClick={validateEmail}>Check</button>
+      </div>
     </>
   );
 }
