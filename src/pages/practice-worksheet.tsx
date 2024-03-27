@@ -1,18 +1,20 @@
 import React from "react";
 import { toast } from "react-toastify";
 
-const patterns = {
-  emailRegex: /^([a-z\d\.-_]+)@([a-z\d-]+)\.([a-z]{3,})(\.[a-z]{2,8})?$/i,
-  phone: /^(\d{3})-?(\d{3})-?(\d{4})?$/,
-  letterMatch: /[a-zA-Z]{1,}/gim,
-  catMatch: /cat[\w]+/gim,
-  dateFormat: /^(\d{4})-(\d{2})-(\d{2})$/gim,
-  stringWithDigits: /^(?=.*\d).+$/gim,
-  specialCharaterString: /^.*[!@#$%^&*].*$/gim,
-  alphanumericString: /^[a-zA-Z0-9]+$/gm,
-  stringWithSpace: /(hello)\s+(world)/gim,
-  sixLetterString: /^[a-z]{6}$/gim,
-};
+// const inputs = document.querySelectorAll("input");
+
+// const patterns = {
+//   emailRegex: /^([a-z\d\.-_]+)@([a-z\d-]+)\.([a-z]{3,})(\.[a-z]{2,8})?$/i,
+//   phone: /^(\d{3})-?(\d{3})-?(\d{4})?$/,
+//   letterMatch: /[a-zA-Z]{1,}/gim,
+//   catMatch: /cat[\w]+/gim,
+//   dateFormat: /^(\d{4})-(\d{2})-(\d{2})$/gim,
+//   stringWithDigits: /^(?=.*\d).+$/gim,
+//   specialCharaterString: /^.*[!@#$%^&*].*$/gim,
+//   alphanumericString: /^[a-zA-Z0-9]+$/gm,
+//   stringWithSpace: /(hello)\s+(world)/gim,
+//   sixLetterString: /^[a-z]{6}$/gim,
+// };
 
 function PracticeWorksheet() {
   const [email, setEmail] = React.useState("");
@@ -55,12 +57,12 @@ function PracticeWorksheet() {
 
   return (
     <>
-      <div className='card'>
+      <div className="card">
         <h4>Email validation</h4>
         <input
-          type='email'
-          name='email'
-          placeholder='Enter email'
+          type="email"
+          name="email"
+          placeholder="Enter email"
           value={email}
           onChange={handleInputChange}
           className={`email-input ${validationClassName}`}
