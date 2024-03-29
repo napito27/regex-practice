@@ -21,11 +21,17 @@ code {
 }
 
 input {
-  padding: 0.5rem 1rem;
-  margin: 0.5rem;
   border: none;
-  border-bottom: 2px solid #333;
-  /* border-radius: 4px; */
+  border: 2px solid #333;
+  padding: 8px 10px;
+  margin: 8px;
+  width: 300px;
+  border-radius: 4px;
+
+  &::placeholder {
+    opacity: 0.5;
+    letter-spacing: 1px;
+  }
 }
 
 .card {
@@ -39,6 +45,12 @@ input {
   box-shadow: 0 0 20px rgba(104, 2, 2, 0.15);
 }
 
+.input-inner-cont {
+  /* margin: 8px 0; */
+  /* border: 1px solid #333; */
+  width: 50vw;
+  margin: 2rem auto;
+}
 .valid:focus {
   outline-color: green;
   border-color: green;
@@ -47,4 +59,11 @@ input {
 .invalid:focus {
   outline-color: red;
   border-color: red;
+}
+
+button {
+  padding: 4px 12px;
+  border-radius: 4px;
+  background: #9b737360;
+  cursor: pointer;
 }

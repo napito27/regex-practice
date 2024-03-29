@@ -1,17 +1,24 @@
-import React from "react";
-
-import PracticeWorksheet from "./pages/practice-worksheet";
 import ToastManager from "./atoms/toast-manager";
 
+import Patterns from "./patterns";
+import {
+  CatMatchStringValidation,
+  EmailValidation,
+  LetterStringValidation,
+  PhoneValidation,
+} from "./molecules";
+
 import "react-toastify/dist/ReactToastify.css";
-import PhoneValidation from "./molecules/phone-validation";
 
 function App() {
   return (
     <div>
       <ToastManager />
-      <PracticeWorksheet />
+      <EmailValidation />
       <PhoneValidation />
+      <LetterStringValidation />
+      <CatMatchStringValidation />
+      {/* <Patterns /> */}
     </div>
   );
 }

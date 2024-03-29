@@ -1,11 +1,9 @@
 import React from "react";
 import { toast } from "react-toastify";
 
-// const inputs = document.querySelectorAll("input");
-
 // const patterns = {
 //   emailRegex: /^([a-z\d\.-_]+)@([a-z\d-]+)\.([a-z]{3,})(\.[a-z]{2,8})?$/i,
-//   phone: /^(\d{3})-?(\d{3})-?(\d{4})?$/,
+//   phone: /^(\d{3})-?(\d{3})-?(\d{4})$/,
 //   letterMatch: /[a-zA-Z]{1,}/gim,
 //   catMatch: /cat[\w]+/gim,
 //   dateFormat: /^(\d{4})-(\d{2})-(\d{2})$/gim,
@@ -16,7 +14,7 @@ import { toast } from "react-toastify";
 //   sixLetterString: /^[a-z]{6}$/gim,
 // };
 
-function PracticeWorksheet() {
+function EmailValidation() {
   const [email, setEmail] = React.useState("");
   const [validEmail, setValidEmail] = React.useState(false);
 
@@ -57,14 +55,14 @@ function PracticeWorksheet() {
 
   return (
     <>
-      <div className="card">
+      <div className='card'>
         <h4>Email validation</h4>
         <input
-          type="email"
-          name="email"
-          placeholder="Enter email"
+          type='email'
+          name='email'
           value={email}
           onChange={handleInputChange}
+          placeholder='example@email.com'
           className={`email-input ${validationClassName}`}
         />
         <button onClick={validateEmail}>Check</button>
@@ -73,4 +71,4 @@ function PracticeWorksheet() {
   );
 }
 
-export default PracticeWorksheet;
+export default EmailValidation;

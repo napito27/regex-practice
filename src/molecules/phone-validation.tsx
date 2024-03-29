@@ -47,9 +47,9 @@ function PhoneValidation() {
         <input
           type='text'
           name='phone'
-          placeholder='Phone number'
           value={phone}
           onChange={handleInputChange}
+          placeholder='123-456-7890'
           className={`input-validation ${validationClassName}`}
         />
         <button onClick={validatePhone}>Check</button>
