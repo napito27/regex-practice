@@ -1,8 +1,8 @@
 import useInputValidation from "../hooks/useInputValidation";
 
-function LetterStringValidation() {
-  const regex = /^[a-zA-Z]+$/;
-  const errorMessaje = "phrase";
+function SixLetterStringValidation() {
+  const regex = /^[a-z]{6}$/;
+  const errorMessaje = "word";
 
   const {
     inputValue,
@@ -14,13 +14,13 @@ function LetterStringValidation() {
   return (
     <>
       <div className='input-inner-cont'>
-        <h4>Letter string validation</h4>
+        <h4>Six letter string validation</h4>
         <input
           type='text'
-          name='phone'
+          name='sixLetterString'
           value={inputValue}
           onChange={handleInputChange}
-          placeholder='any letter'
+          placeholder='banana'
           className={`input-validation ${validationClassName}`}
         />
         <button onClick={handleInputValidation}>Check</button>
@@ -29,4 +29,4 @@ function LetterStringValidation() {
   );
 }
 
-export default LetterStringValidation;
+export default SixLetterStringValidation;

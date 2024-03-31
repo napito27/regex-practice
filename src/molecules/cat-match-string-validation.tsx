@@ -1,14 +1,18 @@
 import useInputValidation from "../hooks/useInputValidation";
 
 function CatMatchStringValidation() {
-  const regex = /cat[\w]+/i;
-  const { inputValue, validInput, handleInputChange, handleInputValidation } =
-    useInputValidation({ regex });
+  const regex = /^cat[\w]+$/i;
+  const errorMessaje = "word";
 
-  const validationClassName = validInput ? "valid" : "invalid";
+  const {
+    inputValue,
+    handleInputChange,
+    handleInputValidation,
+    validationClassName,
+  } = useInputValidation({ regex, errorMessaje });
 
   return (
-    <div className='card'>
+    <div className='input-inner-cont'>
       <h4>Cat string validation</h4>
       <input
         type='text'

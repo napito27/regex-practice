@@ -4,9 +4,10 @@ import { toast } from "react-toastify";
 
 interface InputValidationProps {
   regex: RegExp;
+  errorMessaje: string;
 }
 
-function useInputValidation({ regex }: InputValidationProps) {
+function useInputValidation({ regex, errorMessaje }: InputValidationProps) {
   const [inputValue, setInputValue] = React.useState<string>("");
   const [validInput, setValidInput] = React.useState<boolean>(false);
 
@@ -35,7 +36,7 @@ function useInputValidation({ regex }: InputValidationProps) {
         pauseOnFocusLoss: false,
       });
     } else if (!validInput) {
-      toast.error("The data you entered is not valid.", {
+      toast.error(`The ${errorMessaje} you entered is not valid.`, {
         pauseOnFocusLoss: false,
       });
     }
@@ -44,11 +45,13 @@ function useInputValidation({ regex }: InputValidationProps) {
     setValidInput(false);
   };
 
+  const validationClassName = validInput ? "valid" : "invalid";
+
   return {
     inputValue,
-    validInput,
     handleInputChange,
     handleInputValidation,
+    validationClassName,
   };
 }
 

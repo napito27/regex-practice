@@ -13,6 +13,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  text-align: center;
 }
 
 code {
@@ -46,10 +47,9 @@ input {
 }
 
 .input-inner-cont {
-  /* margin: 8px 0; */
-  /* border: 1px solid #333; */
-  width: 50vw;
+  width: 400px;
   margin: 2rem auto;
+  text-align: left;
 }
 .valid:focus {
   outline-color: green;

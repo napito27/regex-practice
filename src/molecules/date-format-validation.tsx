@@ -1,8 +1,8 @@
 import useInputValidation from "../hooks/useInputValidation";
 
-function LetterStringValidation() {
-  const regex = /^[a-zA-Z]+$/;
-  const errorMessaje = "phrase";
+function DateFormatValidation() {
+  const regex = /^(\d{4})-([0-1][0-9])-([0-3][0-9])$/i;
+  const errorMessaje = "date";
 
   const {
     inputValue,
@@ -14,13 +14,13 @@ function LetterStringValidation() {
   return (
     <>
       <div className='input-inner-cont'>
-        <h4>Letter string validation</h4>
+        <h4>Date format validation</h4>
         <input
           type='text'
-          name='phone'
+          name='date'
           value={inputValue}
           onChange={handleInputChange}
-          placeholder='any letter'
+          placeholder='2024-03-27'
           className={`input-validation ${validationClassName}`}
         />
         <button onClick={handleInputValidation}>Check</button>
@@ -29,4 +29,4 @@ function LetterStringValidation() {
   );
 }
 
-export default LetterStringValidation;
+export default DateFormatValidation;
